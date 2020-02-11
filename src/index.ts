@@ -1,4 +1,4 @@
-const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
+import { wait } from './wait';
 
 async function main() {
   await wait(1000);

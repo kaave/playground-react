@@ -12,10 +12,6 @@
         "strict": true,
         "moduleResolution": "node",
         "baseUrl": ".",
-        "paths": {
-            "~/*": ["./src/*"],
-            "@/*": ["./*"]
-        },
         "typeRoots": ["./node_modules/@types", "./src/types"],
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
@@ -23,7 +19,8 @@
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "isolatedModules": false,
-        "noEmit": true
+        "declarationDir": "dist/types",
+        "declaration": true
     },
     "include": ["**/*.ts", "**/*.tsx"],
     "exclude": ["dist/**/*"]
