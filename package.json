@@ -9,6 +9,7 @@
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "run-p clean build:*",
+    "build-storybook": "build-storybook",
     "build:scripts": "rollup -c",
     "build:types": "tsc --emitDeclarationOnly -p ./tsconfig.production.json",
     "clean": "rimraf dist",
@@ -20,6 +21,7 @@
     "lint-staged": "lint-staged",
     "lint:script": "eslint '**/*.{ts,tsx}'",
     "lint:style": "stylelint '**/*.scss'",
+    "storybook": "start-storybook -p 6006",
     "typecheck": "tsc --noEmit -p ./tsconfig.production.json"
   },
   "husky": {
@@ -40,10 +42,19 @@
     "@babel/preset-typescript": "^7.8.3",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
+    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-backgrounds": "^5.3.13",
+    "@storybook/addon-info": "^5.3.13",
+    "@storybook/addon-knobs": "^5.3.13",
+    "@storybook/addon-links": "^5.3.13",
+    "@storybook/addon-viewport": "^5.3.13",
+    "@storybook/addons": "^5.3.13",
+    "@storybook/react": "^5.3.13",
     "@types/react": "^16.9.19",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
     "autoprefixer": "^9.7.4",
+    "babel-loader": "^8.0.6",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.10.0",
@@ -69,6 +80,7 @@
     "postcss-initial": "^3.0.2",
     "postcss-url": "^8.0.0",
     "prettier": "^1.19.1",
+    "react-docgen-typescript-loader": "^3.6.0",
     "rimraf": "^3.0.2",
     "rollup": "^1.31.0",
     "rollup-plugin-babel": "^4.3.3",
@@ -80,7 +92,9 @@
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.14.2",
-    "typescript": "^3.7.5"
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.6"
   },
   "peerDependencies": {
     "react": "^16.12.0"
