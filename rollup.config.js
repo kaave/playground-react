@@ -1,7 +1,8 @@
-import babel from 'rollup-plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
+import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 import pkg from './package.json';
 
@@ -9,7 +10,7 @@ const name = 'RollupTypeScriptBabel';
 const extensions = ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'];
 
 export default {
-  input: 'src/index.ts',
+  input: 'src/index.tsx',
   output: [
     { file: pkg.main, format: 'cjs' },
     { file: pkg.module, format: 'es' },
@@ -34,5 +35,5 @@ export default {
       globals: {},
     },
   ],
-  plugins: [nodeResolve({ extensions }), commonjs(), babel({ extensions, include: ['src/**/*'] })],
+  plugins: [peerDepsExternal(), nodeResolve({ extensions }), commonjs(), babel({ extensions, include: ['src/**/*'] })],
 };
