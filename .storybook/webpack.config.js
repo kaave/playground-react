@@ -7,6 +7,31 @@ module.exports = ({ config }) => {
     test: /\.tsx?$/,
     use: [{ loader: require.resolve('babel-loader') }, { loader: require.resolve('react-docgen-typescript-loader') }],
   });
+
+  config.module.rules.push({
+    test: /\.scss$/,
+    use: [
+      'style-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          // importLoaders: 1,
+          // localIdentName: '[name]__[local]___[hash:base64:5]',
+          // modules: true,
+          sourceMap: true,
+        },
+      },
+      {
+        loader: 'postcss-loader',
+        options: { sourceMap: true },
+      },
+      {
+        loader: 'sass-loader',
+        options: { sourceMap: true },
+      },
+    ],
+  });
+
   config.resolve.extensions = [...config.resolve.extensions, ...extensions];
   if (!(config.resolve.plugins instanceof Array)) config.resolve.plugins = [];
   config.resolve.plugins.push(new TsconfigPathsPlugin());

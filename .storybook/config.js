@@ -2,6 +2,8 @@ import { withInfo } from '@storybook/addon-info';
 import { addDecorator, addParameters, configure } from '@storybook/react';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
+import '../src/style.scss';
+
 // Globally in your .storybook/config.js, or alternatively, per-chapter
 addDecorator(
   withInfo({
