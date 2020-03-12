@@ -20,7 +20,10 @@
         "resolveJsonModule": true,
         "isolatedModules": false,
         "declarationDir": "dist/types",
-        "declaration": true
+        "declaration": true,
+        "paths": {
+            "@/*": ["./src/*"]
+        }
     },
     "include": ["**/*.ts", "**/*.tsx"],
     "exclude": ["dist/**/*"]
