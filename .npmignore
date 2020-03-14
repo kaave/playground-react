@@ -1,5 +1,6 @@
 .storybook
-src
+/dist/**/*.spec.d.ts
+/dist/**/*.story.d.ts
 .eslintignore
 .eslintrc.js
 .gitignore
