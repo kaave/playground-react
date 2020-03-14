@@ -20,8 +20,7 @@ export const Test = ({ appendMessage, onClick }: Props) => {
 
   return (
     <button type="button" onClick={handleClick}>
-      {toggle ? 'ON' : 'OFF'}
-      {appendMessage}
+      {toggle ? 'ON' : 'OFF'} {appendMessage}
     </button>
   );
 };

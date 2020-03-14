@@ -3,6 +3,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import { string } from 'rollup-plugin-string';
 
 import pkg from './package.json';
 
@@ -35,5 +36,14 @@ export default {
       globals: {},
     },
   ],
-  plugins: [peerDepsExternal(), nodeResolve({ extensions }), commonjs(), babel({ extensions, include: ['src/**/*'] })],
+  plugins: [
+    peerDepsExternal(),
+    nodeResolve({ extensions }),
+    string({
+      include: 'src/**/*.{md,txt,frag,vert,glsl}',
+      // exclude: ['**/index.html'],
+    }),
+    commonjs(),
+    babel({ extensions, include: ['src/**/*'] }),
+  ],
 };

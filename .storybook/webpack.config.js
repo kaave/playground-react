@@ -32,6 +32,11 @@ module.exports = ({ config }) => {
     ],
   });
 
+  config.module.rules.push({
+    test: /\.(txt|md|frag|vert|glsl)$/,
+    use: 'raw-loader',
+  });
+
   config.resolve.extensions = [...config.resolve.extensions, ...extensions];
   if (!(config.resolve.plugins instanceof Array)) config.resolve.plugins = [];
   config.resolve.plugins.push(new TsconfigPathsPlugin());
