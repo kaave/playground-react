@@ -18,7 +18,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   },
   env: {
     browser: true,
@@ -49,6 +49,9 @@ module.exports = {
   rules: {
     // クラスメンバーは改行で区切るが、1行の場合はスルー
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
+    // !! でbooleanへキャストするのを警告 無効化
+    'no-extra-boolean-cast': ['off'],
+    // 強力過ぎるuseDispatchとuseSelectorの使用を警告
     'no-restricted-imports': [
       'warn',
       {
@@ -61,8 +64,10 @@ module.exports = {
         ],
       },
     ],
-    // TODO: Optional Chainingと食い合わせが悪いため無効化
+    // Optional Chainingと食い合わせが悪いため無効化
     'no-unused-expressions': 'off',
+    // yoda記法をrangeに限り有効化
+    yoda: ['error', 'never', { exceptRange: true }],
     // default exportを押す 無効化
     'import/prefer-default-export': 'off',
     // ~が機能しないため外す
@@ -104,6 +109,8 @@ module.exports = {
     'unicorn/prefer-query-selector': 'off',
     // 組み込み型は必ずnewでインスタンス生成 無効化 range作るのがだるい
     'unicorn/new-for-builtins': 'off',
+    // Array.fromの代わりにspread operatorを使う 無効化 使えない場合もある…よね？
+    'unicorn/prefer-spread': 'off',
 
     /*
      * react

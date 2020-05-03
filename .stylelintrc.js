@@ -5,7 +5,7 @@ module.exports = {
     'stylelint-config-recommended-scss',
     'stylelint-scss',
   ],
-  ignoreFiles: ['node_modules/**/*', '.cache/**/*', 'public/**/*'],
+  ignoreFiles: ['node_modules/**/*', 'dist/**/*'],
   syntax: 'scss',
   rules: {
     /*
@@ -16,7 +16,7 @@ module.exports = {
     // @なにがしで意味不明なものを無効化 mixin関係を通す
     'at-rule-no-unknown': [true, { ignoreAtRules: ['mixin', 'include'] }],
     // 複雑すぎる指定はNG ただし属性っぽいものはだいたいOK
-    'selector-max-specificity': ['0,2,0', { ignoreSelectors: ['/:.*/', '/-[^-].*/', '/ \+ /'] }],
+    'selector-max-specificity': ['0,2,0', { ignoreSelectors: ['/:.*/', '/-[^-].*/', '/ + /'] }],
     // コメントの前には空行
     'comment-empty-line-before': [
       'always',
@@ -27,5 +27,9 @@ module.exports = {
     ],
     // @extendは難しいから禁止
     'at-rule-blacklist': ['extend'],
+    // CSS Modules用の記法を許可
+    'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global', 'local', 'export'] }],
+    // 不正なCSSはNGだが、exportの中はなんでもあり
+    'property-no-unknown': [true, { ignoreSelectors: [':export'] }],
   },
 };
