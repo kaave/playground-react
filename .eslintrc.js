@@ -111,6 +111,10 @@ module.exports = {
     'unicorn/new-for-builtins': 'off',
     // Array.fromの代わりにspread operatorを使う 無効化 使えない場合もある…よね？
     'unicorn/prefer-spread': 'off',
+    // nullを使わずundefinedを使おう 無効化 知ってて使ってるよ
+    'unicorn/no-null': 'off',
+    // iteratorのぶんまわし関数のコールバックへ直接関数を渡さない 無効化 知ってて使ってるよ
+    'unicorn/no-fn-reference-in-iterator': 'off',
 
     /*
      * react

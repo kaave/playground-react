@@ -1,0 +1,40 @@
+/* stylelint-disable selector-max-specificity */
+
+.BbcHeadline {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.BbcHeadline__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: transform 800ms;
+}
+
+.BbcHeadline[hidden] .BbcHeadline__background {
+    transform: translate3d(-100%, 0, 0);
+}
+
+.BbcHeadline__inner {
+    position: relative;
+    display: block;
+    padding: 0.1em 0.4em;
+    line-height: 1;
+}
+
+.BbcHeadline__char {
+    position: relative;
+    display: inline-block;
+    min-width: 0.2em; // for space
+    font-family: serif;
+    transition: all 800ms;
+}
+
+.BbcHeadline[hidden] .BbcHeadline__char {
+    opacity: 0;
+    transform: translate3d(0, 40%, 0);
+}
