@@ -4,46 +4,11 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var React = _interopDefault(require('react'));
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
+var React = require('react');
+var React__default = _interopDefault(React);
 
 function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
 function _arrayWithHoles(arr) {
@@ -51,10 +16,7 @@ function _arrayWithHoles(arr) {
 }
 
 function _iterableToArrayLimit(arr, i) {
-  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
-    return;
-  }
-
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
   var _arr = [];
   var _n = true;
   var _d = false;
@@ -80,57 +42,76 @@ function _iterableToArrayLimit(arr, i) {
   return _arr;
 }
 
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
 }
 
-var wait = function wait(msec) {
-  return new Promise(function (resolve) {
-    return setTimeout(resolve, msec);
-  });
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+var cx = function cx() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  return args.filter(function (argv) {
+    return !!argv;
+  }).join(' ').trim() || undefined;
 };
 
-var Test = function Test(_ref) {
-  var appendMessage = _ref.appendMessage,
+var CLASSNAME_PREFIX = 'MyButtonComponent';
+var styles = {
+  root: CLASSNAME_PREFIX,
+  button: "".concat(CLASSNAME_PREFIX, "__button"),
+  buttonBackground: "".concat(CLASSNAME_PREFIX, "__button-background"),
+  buttonInner: "".concat(CLASSNAME_PREFIX, "__button-inner")
+};
+var RippleButton = function RippleButton(_ref) {
+  var children = _ref.children,
       onClick = _ref.onClick;
 
-  var _React$useState = React.useState(false),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      toggle = _React$useState2[0],
-      setToggle = _React$useState2[1];
+  var _useState = React.useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      active = _useState2[0],
+      setActive = _useState2[1];
 
-  var handleClick = React.useCallback( /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return wait(1000);
-
-            case 2:
-              setToggle(function (b) {
-                return !b;
-              });
-              onClick === null || onClick === void 0 ? void 0 : onClick(e);
-
-            case 4:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function (_x) {
-      return _ref2.apply(this, arguments);
-    };
-  }(), [onClick]);
-  return React.createElement("button", {
+  var handleClick = React.useCallback(function (e) {
+    setActive(true);
+    onClick === null || onClick === void 0 ? void 0 : onClick(e);
+    window.setTimeout(function () {
+      return setActive(false);
+    }, 1000);
+  }, [onClick]);
+  var rootClassName = React.useMemo(function () {
+    return cx(styles.root, active && '-active');
+  }, [active]);
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: rootClassName
+  }, /*#__PURE__*/React__default.createElement("button", {
     type: "button",
-    onClick: handleClick
-  }, toggle ? 'ON' : 'OFF', " ", appendMessage);
+    className: styles.button,
+    onClick: !active ? handleClick : undefined
+  }, /*#__PURE__*/React__default.createElement("span", {
+    className: styles.buttonBackground,
+    role: "presentation"
+  }), /*#__PURE__*/React__default.createElement("span", {
+    className: styles.buttonInner
+  }, children)));
 };
 
-exports.Test = Test;
+exports.RippleButton = RippleButton;
 //# sourceMappingURL=cjs.js.map

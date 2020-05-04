@@ -17,7 +17,7 @@ const styles = {
 export const RippleButton = ({ children, onClick }: Props) => {
   const [active, setActive] = useState(false);
   const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
-    e => {
+    (e) => {
       setActive(true);
       onClick?.(e);
       window.setTimeout(() => setActive(false), 1000);

@@ -1,13 +1,64 @@
-html {
-  font-size: 62.5%; }
+.MyButtonComponent {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 5em; }
 
-body {
-  font-size: 1.4em; }
-
-button {
-  font-size: 2rem;
+.MyButtonComponent__button {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  padding: 0.4em;
+  overflow: hidden;
+  font-size: 50px;
+  line-height: 1;
+  cursor: pointer;
   background: transparent;
-  border: 0;
+  border: 1px solid #ccc;
+  border-radius: 0.2em;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none; }
+
+.MyButtonComponent__button-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  display: block;
+  width: 200%;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 10000px;
+  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+  transform-origin: center; }
+
+.MyButtonComponent__button-background::before {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  content: ""; }
+
+.MyButtonComponent__button-background::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  background: rgba(204,204,238,0.66667);
+  border-radius: 10000px; }
+
+.-active .MyButtonComponent__button-background {
+  opacity: 0;
+  transition: all 800ms ease-out;
+  transform: translate3d(-50%, -50%, 0); }
+
+.MyButtonComponent__button-inner {
+  position: relative;
+  z-index: 1; }
