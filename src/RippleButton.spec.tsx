@@ -3,14 +3,14 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { Test } from '.';
+import { RippleButton } from './RippleButton';
 
 describe('components', () => {
-  describe('test', () => {
+  describe('RippleButton', () => {
     it('テストのテスト', () => {
       const msg = 'Ahhhhhhhh!';
-      render(<Test appendMessage={msg} />);
-      expect(screen.queryByText(`OFF${msg}`)).toBeInTheDocument();
+      render(<RippleButton>{msg}</RippleButton>);
+      expect(screen.queryByText(msg)).toBeInTheDocument();
     });
   });
 });
