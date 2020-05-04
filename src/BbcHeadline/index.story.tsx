@@ -8,4 +8,4 @@ export default {
   title: 'BbcHeadline',
 };
 
-export const def = () => <BbcHeadline>{text('children', 'You aint gonna need it')}</BbcHeadline>;
+export const base = () => <BbcHeadline>{text('children', 'You aint gonna need it')}</BbcHeadline>;

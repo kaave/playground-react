@@ -1,12 +1,12 @@
 import React, { useState, useCallback, MouseEventHandler, useMemo } from 'react';
-import { cx } from './utils/cx';
+import { cx } from '../utils/cx';
 
 type Props = {
   children: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
-const CLASSNAME_PREFIX = 'MyButtonComponent';
+const CLASSNAME_PREFIX = 'RippleButton';
 const styles = {
   root: CLASSNAME_PREFIX,
   button: `${CLASSNAME_PREFIX}__button`,

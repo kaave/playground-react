@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { RippleButton } from './RippleButton';
+import { RippleButton } from '.';
 
 describe('components', () => {
   describe('RippleButton', () => {
