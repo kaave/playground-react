@@ -1,0 +1,117 @@
+.FancyButton {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 1em;
+    font-size: 50px;
+}
+
+.FancyButton__button {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    width: 1.4em;
+    height: 1.4em;
+    padding: 0;
+    overflow: hidden;
+    font-size: 1em;
+    line-height: 1;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    outline: 0;
+    appearance: none;
+}
+
+.FancyButton__ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    display: block;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    user-select: none;
+    background: #f65;
+    border-radius: 10000px;
+    transition: all 800ms ease-out;
+    transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+    transform-origin: center;
+}
+
+.FancyButton__ripple:nth-child(2) {
+    background: #fff;
+    transition: all 500ms ease-out;
+    transition-delay: 200ms;
+}
+
+.-active {
+    .FancyButton__ripple {
+        transform: translate3d(-50%, -50%, 0);
+    }
+}
+
+$gadgets-count: 5;
+@for $i from 1 through $gadgets-count {
+    .FancyButton__gadgets-container:nth-of-type(#{$i}) {
+        position: absolute;
+        top: -30%;
+        right: -30%;
+        bottom: -30%;
+        left: -30%;
+        display: block;
+        font-size: 10px;
+        transition: transform 900ms;
+        transform: rotate3d(0, 0, 1, 360deg - (360 / $gadgets-count * $i)) scale3d(0, 0, 1);
+        transform-origin: center;
+    }
+
+    .-active .FancyButton__gadgets-container:nth-of-type(#{$i}) {
+        transform: rotate3d(0, 0, 1, 360deg * 3 - (360 / $gadgets-count * $i));
+    }
+}
+
+.FancyButton__gadgets {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: inline-block;
+    transition: transform 400ms;
+    transform: translate(-50%, 0) scale3d(0, 0, 1);
+    transform-origin: center;
+}
+
+.-active .FancyButton__gadgets {
+    transform: translate(-50%, 0);
+}
+
+.FancyButton__gadget:first-of-type {
+    color: #faf;
+}
+
+.FancyButton__gadget:last-of-type {
+    color: #aff;
+}
+
+.FancyButton__inner {
+    position: relative;
+    z-index: 1;
+}
+
+.FancyButton__inner.-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+}
+
+.-active .FancyButton__inner:not(.-animation) {
+    display: none;
+}
+
+.-active .FancyButton__inner.-animation {
+    transition: all 500ms 200ms cubic-bezier(0.34, 1.86, 0.64, 1);
+    transform: translate3d(-50%, -50%, 0);
+}

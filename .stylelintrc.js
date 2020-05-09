@@ -13,8 +13,10 @@ module.exports = {
      */
     // コメント記号とコメント本文の間にスペースを強要する 無効化 IntelliJと相性が悪い
     'comment-whitespace-inside': null,
-    // @なにがしで意味不明なものを無効化 mixin関係を通す
-    'at-rule-no-unknown': [true, { ignoreAtRules: ['mixin', 'include'] }],
+    // @なにがしで意味不明なものを無効化 mixin、loop関係を通す
+    'at-rule-no-unknown': [true, { ignoreAtRules: ['mixin', 'include', 'for'] }],
+    // @extendは難しいから禁止
+    'at-rule-blacklist': ['extend'],
     // 複雑すぎる指定はNG ただし属性っぽいものはだいたいOK
     'selector-max-specificity': ['0,2,0', { ignoreSelectors: ['/:.*/', '/-[^-].*/', '/ + /'] }],
     // コメントの前には空行
@@ -25,8 +27,6 @@ module.exports = {
         ignore: ['after-comment', 'stylelint-commands'],
       },
     ],
-    // @extendは難しいから禁止
-    'at-rule-blacklist': ['extend'],
     // CSS Modules用の記法を許可
     'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global', 'local', 'export'] }],
     // 不正なCSSはNGだが、exportの中はなんでもあり
