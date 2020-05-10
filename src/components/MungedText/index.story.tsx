@@ -5,7 +5,7 @@ import React from 'react';
 import { MungedText, defaultMunges } from '.';
 
 export default {
-  title: 'Munge',
+  title: 'MungesText',
 };
 
 export const base = () => (

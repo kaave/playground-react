@@ -39,6 +39,7 @@ export const MungedText = ({
   intervalFactor = 150,
 }: Props) => {
   const ref = useRef<HTMLSpanElement>(null);
+  const [stabiliseId, setStabiliseId] = useState<number>();
   const [munged, setMunged] = useState<'unmunged' | 'munging' | 'munged'>('unmunged');
   const interval = useInterval(intervalFactor);
   const munge = useMunge(munges);
@@ -61,7 +62,7 @@ export const MungedText = ({
 
       setContent(nextContent);
       if (nextContent !== originalContent) {
-        window.setTimeout(() => stabilise(nextContent, threshold + stabilisationIncrement), interval());
+        setStabiliseId(window.setTimeout(() => stabilise(nextContent, threshold + stabilisationIncrement), interval()));
       } else {
         setMunged('munged');
       }
@@ -92,6 +93,13 @@ export const MungedText = ({
     // eslint-disable-next-line consistent-return
     return () => observer.unobserve(el);
   }, [munged, stabilise, mungedContent]);
+
+  useEffect(
+    () => () => {
+      if (stabiliseId) clearTimeout(stabiliseId);
+    },
+    [stabiliseId],
+  );
 
   return <span ref={ref}>{content}</span>;
 };

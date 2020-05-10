@@ -15,8 +15,16 @@
     transition: transform 800ms;
 }
 
-.BbcHeadline[hidden] .BbcHeadline__background {
+.BbcHeadline[hidden] .BbcHeadline__background.-swipe {
     transform: translate3d(-100%, 0, 0);
+}
+
+.BbcHeadline__background.-deformation {
+    transform-origin: left 10%;
+}
+
+.BbcHeadline[hidden] .BbcHeadline__background.-deformation {
+    transform: scale3d(0, 0, 1);
 }
 
 .BbcHeadline__inner {

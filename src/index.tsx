@@ -1,2 +1,2 @@
-export * from './RippleButton';
-export * from './BbcHeadline';
+export * from './components/RippleButton';
+export * from './components/BbcHeadline';

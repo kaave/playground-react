@@ -1,5 +1,5 @@
 import React, { useState, useCallback, MouseEventHandler, useMemo } from 'react';
-import { cx } from '../utils/cx';
+import { cx } from '../../utils/cx';
 
 type Props = {
   children: string;
