@@ -1,0 +1,15 @@
+.OldSkoolBlinkText {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.OldSkoolBlinkText__row {
+    position: relative;
+    display: flex;
+}
+
+.OldSkoolBlinkText__char {
+    position: relative;
+    display: inline-block;
+}
