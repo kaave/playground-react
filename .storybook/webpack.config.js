@@ -1,4 +1,6 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const sass = require('sass');
+const Fibers = require('fibers');
 
 const extensions = ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'];
 
@@ -27,7 +29,13 @@ module.exports = ({ config }) => {
       },
       {
         loader: 'sass-loader',
-        options: { sourceMap: true },
+        options: {
+          sourceMap: true,
+          implementation: sass,
+          sassOptions: {
+            fiber: Fibers,
+          },
+        },
       },
     ],
   });
