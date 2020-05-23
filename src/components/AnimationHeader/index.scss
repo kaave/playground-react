@@ -1,0 +1,60 @@
+/* stylelint-disable no-descending-specificity*/
+$easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+
+.AnimationHeader {
+    display: inline-block;
+}
+
+.AnimationHeader__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.AnimationHeader__char {
+    width: 3em;
+    line-height: 1.8;
+    text-align: center;
+    transition: all 1200ms $easeOutExpo;
+}
+
+.AnimationHeader__row:nth-child(2n) {
+    .AnimationHeader__char:nth-child(2n) {
+        transition-delay: 100ms;
+    }
+}
+
+.AnimationHeader__row:nth-child(2n-1) {
+    .AnimationHeader__char:nth-child(2n) {
+        transition-delay: 50ms;
+    }
+
+    .AnimationHeader__char:nth-child(2n-1) {
+        transition-delay: 150ms;
+    }
+}
+
+.-visually-hidden {
+    .AnimationHeader__row:nth-child(2n) {
+        .AnimationHeader__char:nth-child(2n) {
+            transform: translate3d(-10%, 0, 0);
+        }
+
+        .AnimationHeader__char:nth-child(2n-1) {
+            transform: translate3d(-20%, 0, 0);
+        }
+    }
+
+    .AnimationHeader__row:nth-child(2n-1) {
+        .AnimationHeader__char:nth-child(2n) {
+            transform: translate3d(-5%, 0, 0);
+        }
+
+        .AnimationHeader__char:nth-child(2n-1) {
+            transform: translate3d(-15%, 0, 0);
+        }
+    }
+
+    .AnimationHeader__char {
+        opacity: 0;
+    }
+}

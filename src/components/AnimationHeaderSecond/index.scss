@@ -1,0 +1,49 @@
+$easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+
+.AnimationHeaderSecond {
+    display: inline-block;
+}
+
+.AnimationHeaderSecond__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.AnimationHeaderSecond__char {
+    position: relative;
+    display: inline-block;
+    width: 3em;
+    line-height: 1.8;
+    color: #f2a;
+    text-align: center;
+    transition: all 1000ms $easeOutExpo;
+    transform-origin: center;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        color: #2af;
+        content: attr(data-char);
+    }
+}
+
+@for $i from 1 through 3 {
+    .AnimationHeaderSecond__row:nth-child(#{$i}) {
+        @for $j from 1 through 5 {
+            $count: ($i - 1) * 5 + $j - 1;
+
+            .AnimationHeaderSecond__char:nth-child(#{$j}) {
+                transition-delay: $count * 30ms;
+            }
+        }
+    }
+}
+
+.-visually-hidden .AnimationHeaderSecond__char {
+    opacity: 0;
+    transform: scale3d(2, 2, 1);
+}

@@ -1,0 +1,19 @@
+.ConfusedChar {
+    position: relative;
+    display: inline-block;
+}
+
+.ConfusedChar__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    transform: translate(-50%, -50%);
+}
+
+.ConfusedChar__char {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

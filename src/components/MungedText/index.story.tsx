@@ -12,7 +12,7 @@ export const base = () => (
   <>
     <span style={{ fontSize: 30 }}>
       <MungedText munges={[...defaultMunges, { mask: '木朱江エ合云ネ土', pattern: /[会式株社]/ }]} intervalFactor={300}>
-        株式会社LegalForce
+        株式会社
       </MungedText>
     </span>
     <hr />
