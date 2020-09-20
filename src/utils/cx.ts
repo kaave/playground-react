@@ -1,4 +1,4 @@
-type Argv = string | number | boolean | object | null | undefined;
+type Argv = string | number | boolean | Record<string, unknown> | null | undefined;
 
 export const cx: (...args: Argv[]) => string | undefined = (...args) =>
   args

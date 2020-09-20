@@ -17,8 +17,8 @@ module.exports = {
     'at-rule-no-unknown': [true, { ignoreAtRules: ['mixin', 'include', 'for'] }],
     // @extendは難しいから禁止
     'at-rule-blacklist': ['extend'],
-    // 複雑すぎる指定はNG ただし属性っぽいものはだいたいOK
-    'selector-max-specificity': ['0,2,0', { ignoreSelectors: ['/:.*/', '/-[^-].*/', '/ + /'] }],
+    // 複雑すぎる指定をはねたいが難しいのでスルー
+    'selector-max-specificity': null,
     // コメントの前には空行
     'comment-empty-line-before': [
       'always',

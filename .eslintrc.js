@@ -68,6 +68,8 @@ module.exports = {
     'no-unused-expressions': 'off',
     // yoda記法をrangeに限り有効化
     yoda: ['error', 'never', { exceptRange: true }],
+    // 宣言前に使うな は typescript-eslint に任せる
+    'no-use-before-define': 'off',
     // default exportを押す 無効化
     'import/prefer-default-export': 'off',
     // ~が機能しないため外す
@@ -115,6 +117,8 @@ module.exports = {
     'unicorn/no-null': 'off',
     // iteratorのぶんまわし関数のコールバックへ直接関数を渡さない 無効化 知ってて使ってるよ
     'unicorn/no-fn-reference-in-iterator': 'off',
+    // reduce は危険、わかるけどわかって使ってる
+    'unicorn/no-reduce': 'off',
 
     /*
      * react
@@ -131,6 +135,8 @@ module.exports = {
     'react/state-in-constructor': ['error', 'never'],
     // propsを渡す際にspread operatorで渡すやり方を一部コンポーネントを除いて禁止 初見殺しなので
     'react/jsx-props-no-spreading': ['error', { exceptions: ['Head', 'Component'] }],
+    // defaultProps は TypeScript なので必要ない
+    'react/require-default-props': 'off',
     // Checks rules of Hooks
     'react-hooks/rules-of-hooks': 'error',
     // Checks effect dependencies
@@ -157,5 +163,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     // interfaceでOKなものをtypeで書いてたら怒る 無効化 今っぽくない
     '@typescript-eslint/prefer-interface': 'off',
+    // 宣言前に使わない 無効化 わかってやってる
+    '@typescript-eslint/no-use-before-define': 'off',
   },
 };
