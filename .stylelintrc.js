@@ -16,7 +16,7 @@ module.exports = {
     // @なにがしで意味不明なものを無効化 mixin、loop関係を通す
     'at-rule-no-unknown': [true, { ignoreAtRules: ['mixin', 'include', 'for'] }],
     // @extendは難しいから禁止
-    'at-rule-blacklist': ['extend'],
+    'at-rule-disallowed-list': ['extend'],
     // 複雑すぎる指定をはねたいが難しいのでスルー
     'selector-max-specificity': null,
     // コメントの前には空行

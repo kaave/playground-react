@@ -118,7 +118,9 @@ module.exports = {
     // iteratorのぶんまわし関数のコールバックへ直接関数を渡さない 無効化 知ってて使ってるよ
     'unicorn/no-fn-reference-in-iterator': 'off',
     // reduce は危険、わかるけどわかって使ってる
-    'unicorn/no-reduce': 'off',
+    'unicorn/no-array-reduce': 'off',
+    // Array#forEach などの cb に宣言済みの関数を渡さない わかっててやってる
+    'unicorn/no-array-callback-reference': 'off',
 
     /*
      * react
@@ -151,6 +153,7 @@ module.exports = {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     // 関数の戻り値を強制 無効化 voidのみ無効にできたら有効にしたいができないので全部OFF
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     // interfaceの命名をIはじまりに 無効化 C#じゃないんで
     '@typescript-eslint/interface-name-prefix': 'off',
     // 空のinterfaceをしばる 無効化 アクセス修飾子の代わりに使うことがあるんで
