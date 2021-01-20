@@ -15,7 +15,3 @@ addParameters({
     ],
   },
 });
-
-// automatically import all files ending in *.stories.js
-// configure(require.context('../stories', true, /\.tsx?$/), module);
-configure(require.context('../src', true, /\.stor(ies|y)\.[jt]sx?$/), module);
