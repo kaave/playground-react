@@ -1,0 +1,167 @@
+/* stylelint-disable no-descending-specificity */
+
+.SmashBrosLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    font-size: 8vw;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.1em;
+    transition: transform 2s;
+    transform: translate3d(-50%, -50%, 0);
+    transform-origin: center;
+}
+
+.SmashBrosLogo[aria-hidden="true"] {
+    transform: translate3d(-50%, -50%, 0) scale3d(1.2, 1.2, 1);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(1) {
+    transform: translate3d(-150%, 0, 0);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(2) {
+    transform: translate3d(200%, 0, 0);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(3) {
+    transform: translate3d(100%, 0, 0);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(4) {
+    transform: translate3d(-100%, 0, 0);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(5) {
+    transform: translate3d(-200%, 0, 0);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(6) {
+    transform: translate3d(-400%, 0, 0);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(7) {
+    transform: translate3d(200%, 0, 0);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(8) {
+    transform: translate3d(-100%, 0, 0);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(9) {
+    transform: translate3d(-600%, 0, 0);
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell:nth-child(10) {
+    transform: translate3d(100%, 0, 0);
+}
+
+.SmashBrosLogo__row {
+    display: block;
+    text-align: center;
+}
+
+.SmashBrosLogo__cell {
+    position: relative;
+    display: inline-block;
+}
+
+.SmashBrosLogo__text {
+    display: block;
+    transform-origin: center;
+    animation: collapsis 0.4s;
+}
+
+.SmashBrosLogo__cell:nth-child(4),
+.SmashBrosLogo__cell:nth-child(4) .SmashBrosLogo__text {
+    transition-delay: 100ms + 200ms;
+    animation-delay: 100ms;
+}
+
+.SmashBrosLogo__cell:nth-child(8),
+.SmashBrosLogo__cell:nth-child(8) .SmashBrosLogo__text {
+    transition-delay: 200ms + 200ms;
+    animation-delay: 200ms;
+}
+
+.SmashBrosLogo__cell:nth-child(6),
+.SmashBrosLogo__cell:nth-child(6) .SmashBrosLogo__text {
+    transition-delay: 300ms + 200ms;
+    animation-delay: 300ms;
+}
+
+.SmashBrosLogo__cell:nth-child(10),
+.SmashBrosLogo__cell:nth-child(10) .SmashBrosLogo__text {
+    transition-delay: 400ms + 200ms;
+    animation-delay: 400ms;
+}
+
+.SmashBrosLogo__cell:nth-child(5),
+.SmashBrosLogo__cell:nth-child(5) .SmashBrosLogo__text {
+    transition-delay: 500ms + 200ms;
+    animation-delay: 500ms;
+}
+
+.SmashBrosLogo__cell:nth-child(1),
+.SmashBrosLogo__cell:nth-child(1) .SmashBrosLogo__text {
+    transition-delay: 600ms + 200ms;
+    animation-delay: 600ms;
+}
+
+.SmashBrosLogo__cell:nth-child(9),
+.SmashBrosLogo__cell:nth-child(9) .SmashBrosLogo__text {
+    transition-delay: 700ms + 200ms;
+    animation-delay: 700ms;
+}
+
+.SmashBrosLogo__cell:nth-child(3),
+.SmashBrosLogo__cell:nth-child(3) .SmashBrosLogo__text {
+    transition-delay: 800ms + 200ms;
+    animation-delay: 800ms;
+}
+
+.SmashBrosLogo__cell:nth-child(2),
+.SmashBrosLogo__cell:nth-child(2) .SmashBrosLogo__text {
+    transition-delay: 900ms + 200ms;
+    animation-delay: 900ms;
+}
+
+.SmashBrosLogo__cell:nth-child(7),
+.SmashBrosLogo__cell:nth-child(7) .SmashBrosLogo__text {
+    transition-delay: 1000ms + 200ms;
+    animation-delay: 1000ms;
+}
+
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__cell,
+.SmashBrosLogo[aria-hidden="true"] .SmashBrosLogo__text {
+    opacity: 0;
+    animation: none;
+}
+
+@keyframes collapsis {
+    from {
+        transform: scale3d(0, 0, 1);
+    }
+
+    20% {
+        transform: scale3d(10, 0.2, 1);
+    }
+
+    40% {
+        transform: scale3d(0.2, 10, 1);
+    }
+
+    60% {
+        transform: scale3d(10, 0.2, 1);
+    }
+
+    80% {
+        transform: scale3d(0.2, 10, 1);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
