@@ -1,0 +1,55 @@
+.LFVideoHeader {
+    position: relative;
+    display: inline-block;
+    padding: 2px 0 2px 8px;
+    font-size: 3vw;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.LFVideoHeader::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    content: "";
+    background: currentColor;
+    transition: transform 400ms;
+}
+
+.LFVideoHeader[aria-hidden="true"]::before {
+    transform: translate3d(0, -100vh, 0);
+}
+
+.LFVideoHeader__headline {
+    display: block;
+    overflow: hidden;
+}
+
+.LFVideoHeader__headline-text {
+    position: relative;
+    display: block;
+    transition: transform 600ms 300ms;
+}
+
+.LFVideoHeader[aria-hidden="true"] .LFVideoHeader__headline-text {
+    transform: translate3d(-100%, 0, 0);
+}
+
+.LFVideoHeader__desc {
+    display: block;
+    margin-top: 0.2em;
+    overflow: hidden;
+    font-size: 0.5em;
+}
+
+.LFVideoHeader__desc-text {
+    position: relative;
+    display: block;
+    transition: transform 800ms 700ms;
+}
+
+.LFVideoHeader[aria-hidden="true"] .LFVideoHeader__desc-text {
+    transform: translate3d(0, 100%, 0);
+}
