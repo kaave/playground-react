@@ -1,0 +1,38 @@
+.SwipeText {
+    position: relative;
+    display: inline-block;
+    height: 1em;
+    overflow: hidden;
+}
+
+.SwipeText__exit {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: inline-block;
+    opacity: 0;
+    transition: all 80ms;
+    transform: translate3d(-50%, 0, 0) translate3d(-150%, 0, 0);
+}
+
+.SwipeText.-pre-exit .SwipeText__exit {
+    opacity: 1;
+    transition: none;
+    transform: translate3d(-50%, 0, 0);
+}
+
+.SwipeText__current {
+    position: relative;
+    top: 0;
+    left: 50%;
+    display: inline-block;
+    opacity: 1;
+    transition: all 50ms;
+    transform: translate3d(-50%, 0, 0);
+}
+
+.SwipeText.-pre-enter .SwipeText__current {
+    opacity: 0;
+    transition: none;
+    transform: translate3d(-50%, 0, 0) translate3d(150%, 0, 0);
+}
