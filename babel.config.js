@@ -10,5 +10,10 @@ module.exports = {
      */
     '@babel/plugin-proposal-numeric-separator',
     '@babel/plugin-proposal-class-properties',
+    /**
+     * for babel/preset-env loose mode
+     */
+    '@babel/plugin-proposal-private-methods',
+    '@babel/plugin-proposal-private-property-in-object',
   ],
 };

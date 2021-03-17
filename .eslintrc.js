@@ -8,8 +8,6 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'prettier/@typescript-eslint',
-    'prettier/react',
   ],
   plugins: ['@typescript-eslint', 'react-hooks', 'react-redux'],
   parser: '@typescript-eslint/parser',
@@ -121,7 +119,8 @@ module.exports = {
     'unicorn/no-array-reduce': 'off',
     // Array#forEach などの cb に宣言済みの関数を渡さない わかっててやってる
     'unicorn/no-array-callback-reference': 'off',
-
+    // Array#forEach ではなく for...of のほうが見やすいとのことだが、私はむしろ逆
+    'unicorn/no-array-for-each': 'off',
     /*
      * react
      */
